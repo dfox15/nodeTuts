@@ -38,6 +38,7 @@ yargs.command({
         }
     },
     handler: (argv) => {
+        console.log(argv)
         notes.removeNote(argv.title)
     }
 })
@@ -46,8 +47,15 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'List a note',
+    builder: {
+        title: {
+            describe: 'List title',
+            demandOption: false,
+            type: 'string'
+        }
+    },
     handler: () => {
-        console.log('List the note!')
+        notes.listNotes()
     }
 })
 
