@@ -2,3 +2,5 @@ apidocExample/
 oldProjs/
 node_modules/
 playground/
+/notes.txt
+.env
