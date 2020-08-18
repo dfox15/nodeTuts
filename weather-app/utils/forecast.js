@@ -11,18 +11,18 @@ const forecast = (latitude, longitude, callback) => {
         longitude.toString() +
         '&units=f'
 
-    request({ url: url, json: true }, (error, response) => {
+    request({ url, json: true }, (error, { body }) => {
         if (error) {
             callback('Unable to connect to location services!', undefined)
-        } else if (response.body.error === 0) {
+        } else if (body.error === 0) {
             callback('Unable to find location. Try another search.', undefined)
         } else {
             console.log(
-                response.body.current.weather_descriptions[0] +
+                body.current.weather_descriptions[0] +
                     '. It is currently ' +
-                    response.body.current.temperature +
+                    body.current.temperature +
                     ' degrees out. It feels like ' +
-                    response.body.current.feelslike +
+                    body.current.feelslike +
                     ' degrees out.'
             )
         }
