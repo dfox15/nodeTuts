@@ -13,7 +13,6 @@ weatherForm.addEventListener('submit', (e) => {
     console.log(location)
 
     fetch(url + location).then((response) => {
-        console.log(url + location)
         response.json().then((data) => {
             if (data.error) {
                 console.log(data.error)
