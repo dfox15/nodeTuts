@@ -15,6 +15,6 @@ MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (error, client)
 
     db.collection('users').insertOne({
         name: 'Donald',
-        age: 38
+        age: 27
     })
 })
