@@ -12,18 +12,17 @@ MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (error, client)
 
     const db = client.db(databaseName)
 
-    const updatePromise = db.collection('users').updateOne(
-        {
-            _id: new ObjectID('5f4da7dbf02d1eef4fe46845')
-        },
-        {
-            $set: {
-                name: 'Mike'
+    db.collection('users')
+        .updateOne(
+            {
+                _id: new ObjectID('5f4da7dbf02d1eef4fe46845')
+            },
+            {
+                $set: {
+                    name: 'Mike'
+                }
             }
-        }
-    )
-
-    updatePromise
+        )
         .then((result) => {
             console.log(result)
         })
