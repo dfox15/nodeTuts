@@ -12,52 +12,27 @@ MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (error, client)
 
     const db = client.db(databaseName)
 
-    // db.collection('users').insertOne(
-    //     {
-    //         name: 'Donald',
-    //         age: 38
-    //     },
-    //     (error, result) => {
-    //         if (error) {
-    //             return console.log('Unable to insert user')
-    //         }
-
-    //         console.log(result.ops)
+    // db.collection('users').findOne({ _id: new ObjectID('5f4da7dbf02d1eef4fe46845') }, (error, user) => {
+    //     if (error) {
+    //         return console.log('Unable to fetch')
     //     }
-    // )
 
-    // db.collection('users').insertMany(
-    //     [
-    //         {
-    //             name: 'Jen',
-    //             age: 28
-    //         },
-    //         {
-    //             name: 'Gunther',
-    //             age: 27
-    //         }
-    //     ],
-    //     (error, result) => {
-    //         if (error) {
-    //             console.log('Unable to insert documents!')
-    //         }
+    //     console.log(user)
+    // })
 
-    //         console.log(result.ops)
-    //     }
-    // )
+    // db.collection('users')
+    //     .find({ age: 38 })
+    //     .count((error, count) => {
+    //         console.log(count)
+    //     })
 
-    // db.collection('tasks').insertMany(
-    //     [
-    //         { description: 'Wash dishes', completed: false },
-    //         { description: 'Exercise', completed: true },
-    //         { description: 'Pack baby lunch', completed: true }
-    //     ],
-    //     (error, result) => {
-    //         if (error) {
-    //             return console.log('Unable to insert document!')
-    //         }
+    db.collection('tasks').findOne({ _id: ObjectID('5f4daa15343ba419770d0b4a') }, (error, task) => {
+        console.log(task)
+    })
 
-    //         console.log(result.ops)
-    //     }
-    // )
+    db.collection('tasks')
+        .find({ completed: false })
+        .toArray((error, tasks) => {
+            console.log(tasks)
+        })
 })
