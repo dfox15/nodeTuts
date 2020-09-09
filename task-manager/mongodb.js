@@ -12,17 +12,21 @@ MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (error, client)
 
     const db = client.db(databaseName)
 
-    db.collection('users')
-        .updateOne(
-            {
-                _id: new ObjectID('5f4da7dbf02d1eef4fe46845')
-            },
-            {
-                $set: {
-                    name: 'Mike'
-                }
-            }
-        )
+    // db.collection('users')
+    //     .deleteMany({
+    //         age: 38
+    //     })
+    //     .then((result) => {
+    //         console.log(result)
+    //     })
+    //     .catch((error) => {
+    //         console.log(error)
+    //     })
+
+    db.collection('tasks')
+        .deleteOne({
+            description: 'Wash dishes'
+        })
         .then((result) => {
             console.log(result)
         })
