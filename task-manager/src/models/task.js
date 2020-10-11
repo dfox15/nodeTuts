@@ -3,12 +3,11 @@ const mongoose = require('mongoose')
 const Task = mongoose.model('Task', {
     description: {
         type: String,
-        trim: true,
-        required: true
+        required: true,
+        trim: true
     },
     completed: {
         type: Boolean,
-        required: false,
         default: false
     },
     owner: {
