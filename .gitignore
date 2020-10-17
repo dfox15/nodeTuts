@@ -4,3 +4,4 @@ node_modules/
 playground/
 /notes.txt
 .env
+simple-express-crud-api/
